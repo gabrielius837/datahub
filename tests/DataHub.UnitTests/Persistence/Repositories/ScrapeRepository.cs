@@ -1,11 +1,3 @@
-using System;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using DataHub.Domain;
-using DataHub.Persistence;
-using Microsoft.EntityFrameworkCore;
-
 namespace DataHub.UnitTests;
 
 public class EnergyReportRepository_Tests
@@ -33,18 +25,5 @@ public class EnergyReportRepository_Tests
 
         // assert
         Assert.Equal(expected, result);
-    }
-
-    [Fact]
-    public void Test()
-    {
-        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-        using SHA256 sha256Hash = SHA256.Create();
-        var bytes = sha256Hash.ComputeHash(Encoding.GetEncoding(1257).GetBytes("test"));
-        var sb = new StringBuilder();
-        for (int i = 0; i < bytes.Length; i++)
-            sb.Append(bytes[i].ToString("x2"));
-        
-        Assert.Equal(EXISTING_HASH, sb.ToString());
     }
 }

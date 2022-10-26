@@ -1,10 +1,12 @@
 global using DataHub.Domain;
 global using DataHub.Persistence;
 global using DataHub.WebApi;
+global using DataHub.WebApi.Controllers;
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.AspNetCore.Hosting;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.TestHost;
+global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging.Abstractions;
 global using Microsoft.Extensions.Hosting;

@@ -12,7 +12,7 @@ public class RegionEnergyController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<RegionEnergyResponse>> Get(CancellationToken token)
+    public async Task<RegionEnergyResponse[]> Get(CancellationToken token)
     {
         var entires = await _repo.GetAllRegionEnergy(token);
         var result = entires.Select(x => new RegionEnergyResponse(x.Region, x.Energy)).ToArray();
