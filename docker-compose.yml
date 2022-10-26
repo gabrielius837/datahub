@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  datahub-api:
+    build: .
+    ports:
+     - "5000:5000"
+    depends_on:
+     - "postgres"
+    networks:
+      - aspnetcoreapp-network
+
+  postgres:
+    container_name: 'postgres'
+    image: postgres:alpine
+    environment:
+      # change this for a "real" app!
+      POSTGRES_PASSWORD: password
+    networks:
+      - aspnetcoreapp-network
+
+networks:
+  aspnetcoreapp-network:
+    driver: bridge
